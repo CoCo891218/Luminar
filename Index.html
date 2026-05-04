@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<!-- 
+========================================================
+DOCUMENTO HTML5
+Esta línea le dice al navegador que este archivos
+está escrito en HTML5 (la versión moderna de HTML).
+
+Esto ayuda a que la página funcione correctamente
+en todos los navegadores modernos.
+========================================================
+-->
+
+<html lang="es">
+<!-- 
+========================================================
+ETIQUETA PRINCIPAL HTML
+
+lang="es" indica que el idioma principal
+de la página está en español.
+
+Esto ayuda a Google, navegadores y lectores
+de pantalla a interpretar mejor el contenido.
+========================================================
+-->
+
+<head>
+
+    <!-- 
+    ========================================================
+    CONFIGURACIÓN DE CARACTERES
+
+    UTF-8 permite usar letras como:
+    á, é, í, ó, ú, ñ, símbolos especiales, etc.
+    ========================================================
+    -->
+    <meta charset="UTF-8">
+
+    <!-- 
+    ========================================================
+    DISEÑO RESPONSIVE
+
+    Hace que la página se adapte correctamente
+    a celulares, tablets y computadoras.
+    ========================================================
+    -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- 
+    ========================================================
+    TÍTULO DE LA PESTAÑA
+
+    Este texto aparece arriba en la pestaña
+    del navegador.
+    ========================================================
+    -->
+    <title>Luminar | Postres & Experiencias</title>
+
+    <!-- 
+    ========================================================
+    FUENTE DE GOOGLE
+
+    Aquí importamos la fuente "Poppins"
+    para que toda la página se vea más moderna.
+    ========================================================
+    -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+
+        /* 
+        ########################################################
+        ################### CSS / DISEÑO #######################
+        ########################################################
+        */
+
+        /* 
+        ========================================================
+        RESET GENERAL
+
+        Quitamos márgenes y espacios automáticos
+        que pone el navegador por defecto.
+
+        También activamos box-sizing para que
+        los tamaños sean más fáciles de controlar.
+        ========================================================
+        */
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* 
+        ========================================================
+        ESTILO GENERAL DEL BODY
+
+        Fondo oscuro general de toda la página
+        y color blanco para el texto.
+        ========================================================
+        */
+        body{
+            background: #0f0f0f;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* 
+        ========================================================
+        HEADER (BARRA SUPERIOR)
+
+        position: fixed hace que siempre permanezca
+        arriba aunque el usuario haga scroll.
+        ========================================================
+        */
+        header{
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            padding: 20px 50px;
+            background: rgba(0,0,0,0.6);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+
+            /* 
+            Esto alinea logo + texto en horizontal
+            */
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        /* 
+        ========================================================
+        LOGO
+
+        Aquí controlamos el tamaño del logo.
+
+        IMPORTANTE:
+        Si el logo se ve gigante,
+        aquí es donde lo haces más pequeño.
+        ========================================================
+        */
+        .logo img{
+            width: 70px;   /* cambia este valor */
+            height: auto;  /* mantiene proporción */
+        }
+
+        /* 
+        ========================================================
+        TEXTO DEL LOGO (LUMINAR)
+        ========================================================
+        */
+        header h1{
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        /* 
+========================================================
+SECCIÓN HERO MODERNA CON VIDEO DE FONDO
+========================================================
+*/
+.hero{
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+/* 
+VIDEO DE FONDO
+
+Este video cubrirá toda la pantalla.
+object-fit: cover hace que se vea elegante
+como en páginas premium.
+*/
+.hero video{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+}
+
+/* 
+CAPA OSCURA ENCIMA DEL VIDEO
+
+Esto ayuda a que el texto se lea mejor
+y da un efecto más profesional.
+*/
+.hero::before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.55);
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+/* 
+CAJA CENTRAL DE TEXTO
+
+Glassmorphism = efecto moderno premium
+tipo Apple / Tesla / páginas de lujo
+*/
+.hero-content{
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    backdrop-filter: blur(15px);
+    padding: 50px;
+    border-radius: 30px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    animation: fadeIn 1.5s ease;
+}
+
+.hero h2{
+    font-size: 65px;
+    font-weight: 700;
+    line-height: 1.1;
+}
+
+.hero p{
+    margin-top: 20px;
+    font-size: 22px;
+    opacity: 0.95;
+}
+
+/* 
+BOTÓN MÁS PREMIUM
+*/
+.btn{
+    display: inline-block;
+    margin-top: 30px;
+    padding: 16px 35px;
+    background: linear-gradient(45deg,#ffffff,#ffe6ea);
+    color: #111;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: 0.4s;
+    box-shadow: 0 10px 30px rgba(255,255,255,0.2);
+}
+
+.btn:hover{
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 20px 40px rgba(255,255,255,0.3);
+}
+
+        /* 
+        ========================================================
+        SECCIONES GENERALES
+        ========================================================
+        */
+        .section{
+            padding: 100px 50px;
+            text-align: center;
+        }
+
+        /* 
+        ========================================================
+        TARJETAS DE PRODUCTOS
+
+        grid permite acomodar automáticamente
+        las tarjetas de forma bonita.
+        ========================================================
+        */
+        .cards{
+            display: grid;
+            grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .card{
+            background: #1a1a1a;
+            border-radius: 20px;
+            padding: 20px;
+            transition: .4s;
+        }
+
+        .card:hover{
+            transform: translateY(-10px) scale(1.05);
+        }
+
+        .card img{
+            width: 100%;
+            border-radius: 15px;
+        }
+
+        .card h3{
+            margin-top: 15px;
+        }
+
+        /* 
+        ========================================================
+        BOTÓN FLOTANTE DE WHATSAPP
+        ========================================================
+        */
+        .whatsapp{
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #25D366;
+            color: #fff;
+            padding: 15px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        /* 
+        ========================================================
+        FOOTER
+        ========================================================
+        */
+        footer{
+            padding: 40px;
+            text-align: center;
+            background: #000;
+        }
+
+        /* 
+        ========================================================
+        ANIMACIÓN DE ENTRADA
+        ========================================================
+        */
+        @keyframes fadeIn{
+            from{
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to{
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- 
+    ========================================================
+    HEADER SUPERIOR
+
+    Aquí agregamos el logo + nombre de la marca.
+
+    PASO IMPORTANTE:
+    Guarda tu imagen como por ejemplo:
+
+    logo.png
+
+    y colócala en la misma carpeta
+    donde está tu archivo index.html
+    ========================================================
+    -->
+    <header>
+
+        <!-- Contenedor del logo -->
+        <div class="logo">
+
+            <!-- 
+            src="logo.png"
+
+            significa:
+            busca una imagen llamada logo.png
+            dentro de esta misma carpeta
+            -->
+            <img src="img/logo.png" alt="Logo Luminar">
+
+        </div>
+
+    </header>
+
+    <!-- 
+    ========================================================
+    SECCIÓN PRINCIPAL
+    ========================================================
+    -->
+    <section class="hero">
+        <div>
+            <h2>Postres que iluminan tus momentos</h2>
+            <p>Mini hot cakes, waffles, crepas, frappes y más</p>
+
+            <a href="https://wa.me/525562524763" class="btn">
+                Ordenar ahora
+            </a>
+        </div>
+    </section>
+
+    <!-- 
+    ========================================================
+    PRODUCTOS
+    ========================================================
+    -->
+    <section class="section">
+        <h2>Nuestros productos</h2>
+
+        <div class="cards">
+
+            <div class="card">
+                <img src="https://www.cocinadelirante.com/sites/default/files/images/2019/10/hot-cakes-de-manzana-receta0.jpg" alt="Mini hot cakes">
+                <h3>Mini Hot Cakes</h3>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1505253758473-96b7015fcd40" alt="Waffles">
+                <h3>Waffles</h3>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1551782450-a2132b4ba21d" alt="Crepas">
+                <h3>Crepas</h3>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1586190848861-99aa4a171e90" alt="Frappes">
+                <h3>Frappuchinos</h3>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1550547660-d9450f859349" alt="Papas">
+                <h3>Papas a la francesa</h3>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 
+    ========================================================
+    DESAYUNOS SORPRESA
+    ========================================================
+    -->
+    <section class="section" style="background:#111">
+        <h2>Desayunos sorpresa</h2>
+        <p>Envíos a domicilio con cajas personalizadas y detalles únicos</p>
+    </section>
+
+    <!-- 
+    ========================================================
+    BOTÓN DE WHATSAPP
+    ========================================================
+    -->
+    <a href="https://wa.me/525543750715" class="whatsapp">
+        WhatsApp
+    </a>
+
+    <!-- 
+    ========================================================
+    PIE DE PÁGINA
+    ========================================================
+    -->
+    <footer>
+        <p>© 2026 Luminar - Todos los derechos reservados</p>
+    </footer>
+
+</body>
+</html>
